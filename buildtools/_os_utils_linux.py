@@ -4,7 +4,7 @@ import os
 from buildtools.bt_logging import log
 
 cmd_output = None
-
+scripts_dir = None
 
 def InstallDpkgPackages(packages):
     import apt  # IGNORE:import-error

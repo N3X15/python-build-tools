@@ -409,5 +409,6 @@ if platform.system() == 'Windows':
 else:
     import buildtools._os_utils_linux
     buildtools._os_utils_linux.cmd_output = cmd_output
+    buildtools._os_utils_linux.scripts_dir = scripts_dir
     from buildtools._os_utils_linux import GetDpkgShlibs, InstallDpkgPackages, DpkgSearchFiles
 
