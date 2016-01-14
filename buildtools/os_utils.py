@@ -308,7 +308,7 @@ def canCopy(src, dest, **op_args):
     return not os.path.isfile(dest) or op_args.get('ignore_mtime', False) or (os.stat(src).st_mtime - os.stat(dest).st_mtime > 1)
 
 
-def copy(fromfile, newroot, **op_args):
+def single_copy(fromfile, newroot, **op_args):
     newfile = os.path.join(newroot, os.path.basename(fromfile))
     if canCopy(fromfile, newfile, **op_args):
         if op_args.get('verbose', False):
@@ -317,7 +317,7 @@ def copy(fromfile, newroot, **op_args):
 
 
 def copytree(fromdir, todir, ignore=None, verbose=False, ignore_mtime=False):
-    optree(fromdir, todir, copy, ignore,
+    optree(fromdir, todir, single_copy, ignore,
            verbose=verbose, ignore_mtime=ignore_mtime)
 
 
